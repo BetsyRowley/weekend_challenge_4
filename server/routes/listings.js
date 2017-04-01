@@ -6,7 +6,7 @@ var mongoose = require("mongoose");
 var ListingsSchema = mongoose.Schema({
   cost: Number,
   sqft: Number,
-  city: String,
+  city: String
 });
 
 var Listings = mongoose.model("Listings", ListingsSchema);
