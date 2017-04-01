@@ -22,16 +22,21 @@ function appendListings(response) {
     $(".listingContainer").append("<div class = 'well col-md-3'></div>");
     var $el = $(".listingContainer").children().last();
     if(response[i].cost) {
-      $el.append("<p>For Sale</p>");
+      $el.append("<h3><span class = 'label label-primary'>For Sale</span></h3>");
+      $el.append("<span class = 'glyphicon glyphicon-home'></span>");
       $el.append("<p>Cost: $" + response[i].cost.toLocaleString() + "</p>");
+      $el.append("<p>" + response[i].sqft + " Sqft</p>");
+      $el.append("<p>" + response[i].city + ", MN</p>");
     } else if(response[i].rent) {
-      $el.append("<p>For Rent</p>");
+      $el.append("<h3><span class = 'label label-success'>For Rent</span></h3>");
+      $el.append("<span class = 'glyphicon glyphicon-home'></span>");
       $el.append("<p>Rent: $" + response[i].rent.toLocaleString() + "</p>");
+      $el.append("<p>" + response[i].sqft + " Sqft</p>");
+      $el.append("<p>" + response[i].city + ", MN</p>");
     } else {
       $el.append("<p>Property Updating</p>");
     }
-    $el.append("<p>" + response[i].sqft + " sqft</p>");
-    $el.append("<p>" + response[i].city + ", MN</p>");
+
   }
 }
 

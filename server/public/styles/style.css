@@ -1,0 +1,21 @@
+body {
+  background-color: azure;
+}
+
+.jumbotron {
+  text-align: center;
+  color: white;
+  background-image: url('http://www.visitcookcounty.com/wp-content/uploads/2014/02/TN_AURORA-3598_UL_2015-WEB.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.well {
+  text-align: center;
+  background-color:
+}
+
+/*.label {
+  font-size: 20px;
+  margin: 1px;
+}*/
