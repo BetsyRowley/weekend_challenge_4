@@ -8,11 +8,16 @@ $(document).ready(function() {
 //function init
 function init() {
   getListings();
+  // popupForm();
 }
 
 //function eventListeners
+// $("#popup").on("click", popupForm);
 
 //Event Handlers
+// function popupForm() {
+//     prompt("Do you want to sell or rent your home?");
+// }
 
 //DOM Methods
 
@@ -24,13 +29,13 @@ function appendListings(response) {
     if(response[i].cost) {
       $el.append("<h3><span class = 'label label-primary'>For Sale</span></h3>");
       $el.append("<span class = 'glyphicon glyphicon-home'></span>");
-      $el.append("<p>Cost: $" + response[i].cost.toLocaleString() + "</p>");
+      $el.append("<p>Price: $" + response[i].cost.toLocaleString() + "</p>");
       $el.append("<p>" + response[i].sqft + " Sqft</p>");
       $el.append("<p>" + response[i].city + ", MN</p>");
     } else if(response[i].rent) {
       $el.append("<h3><span class = 'label label-success'>For Rent</span></h3>");
       $el.append("<span class = 'glyphicon glyphicon-home'></span>");
-      $el.append("<p>Rent: $" + response[i].rent.toLocaleString() + "</p>");
+      $el.append("<p>$" + Math.round((response[i].rent/12)).toLocaleString() + "/month</p>");
       $el.append("<p>" + response[i].sqft + " Sqft</p>");
       $el.append("<p>" + response[i].city + ", MN</p>");
     } else {

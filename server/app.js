@@ -6,7 +6,8 @@ var bodyParser = require("body-parser");
 var listings = require("./routes/listings.js");
 
 var mongoose = require("mongoose");
-var mongoURI = "mongodb://localhost:27017/realestate";
+var mongoURI = "mongodb://Betsy:Betsy@ds149040.mlab.com:49040/mn_listings";
+// "mongodb://localhost:27017/realestate"
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on("error", function(err) {
