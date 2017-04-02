@@ -22,4 +22,19 @@ router.get("/", function(req, res) {
   });
 });
 
+router.post("/", function(req, res) {
+  var listing = new Listings();
+  listing.cost = req.body.cost;
+  listing.sqft = req.body.sqft;
+  listing.city = req.body.city;
+  listing.save(function(err, savedListing) {
+    if(err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.send(savedListing);
+    }
+  });
+});
+
 module.exports = router;

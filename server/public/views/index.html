@@ -17,14 +17,56 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>Minnesot<span class = 'glyphicon glyphicon-home'></span> Listings</h1>
+        <h1>Minnesot<span class = 'glyphicon glyphicon-home'></span>
+            Listings</h1>
         <p>Find your next home here</p>
-        <p><a id = "popup" class = "btn btn-primary btn-lg" href = "#" role = "button"> Add Your Listing</a></p>
+        <p><a class = "btn btn-primary btn-lg" href = "#addForm" role = "button">
+              Add Your Listing</a></p>
       </div>
     </div>
 
     <div class="listingContainer container">
 
+    </div>
+
+    <div class="newListingForm container">
+      <h3><a name = "addForm"></a>Add your new listing!</h3>
+      <form>
+        <div class="form-group">
+          <label for="listingType">
+            Do you want to rent out or sell your home?</label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="radios" id = "rent" value="rent"> Rent
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="radios" id = "sell" value="sell" checked> Sell
+          </label>
+        </div>
+
+        <div class="rentalForm">
+          <label>How much does your property cost to rent for the year?
+            (We will break the amount down into monthly payments) $</label>
+          <input type="Number" name="yrAmount" id="rentAmount" placeholder="Yearly Amount">
+          <label>What is the square footage of your rental property?</label>
+          <input type="Number" name="rentalSqft" id="rentalSqft" placeholder="sqft">
+          <label>What city in Minnesota is your rental property located?</label>
+          <input type="text" name="rentalCity" id="rentalCity" placeholder="City">
+        </div>
+
+        <div class="sellForm">
+          <label>What is the asking price for your home? $</label>
+          <input type="Number" name="price" id="price" placeholder="price">
+          <label>What is the square footage of your home?</label>
+          <input type="Number" name="sqft" id="sqft" placeholder="sqft">
+          <label>What city in Minnesota is the home for sale?</label>
+          <input type="text" name="city" id="city" placeholder="City">
+        </div>
+        <button id ="submitForm" type="submit" class = "btn btn-warning">Submit</button>
+      </form>
     </div>
 
     <script type="text/javascript" src = "vendors/js/bootstrap.js"></script>

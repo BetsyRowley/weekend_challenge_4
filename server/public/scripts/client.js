@@ -3,21 +3,21 @@ $(document).ready(function() {
 
   init();
 
+  $("#submitForm").on("click", postListing);
+
 });
 
 //function init
 function init() {
   getListings();
-  // popupForm();
+  // displayForm();
 }
 
 //function eventListeners
-// $("#popup").on("click", popupForm);
+
 
 //Event Handlers
-// function popupForm() {
-//     prompt("Do you want to sell or rent your home?");
-// }
+
 
 //DOM Methods
 
@@ -45,6 +45,17 @@ function appendListings(response) {
   }
 }
 
+function displayForm() {
+
+  if(value === "rent") {
+    $(".rentalForm").toggle("show");
+    $(".sellForm").hide();
+  } else {
+    $(".sellForm").toggle("show");
+    $(".rentalForm").hide();
+  }
+}
+
 //REST Interface
 
 function getListings(){
@@ -58,3 +69,23 @@ function getListings(){
     }
   }); //end of ajax request
 } // end of function
+
+function postListing() {
+  var listing = {};
+  listing.cost = $("#price").val();
+  listing.sqft = $("#sqft").val();
+  listing.city = $("#city").val();
+  $("#price").val("");
+  $("#sqft").val("");
+  $("#city").val("");
+  console.log(listing);
+  $.ajax({
+    type: "POST",
+    url: "/listings",
+    data: listing,
+    success: function(response) {
+      getListings();
+      alert("You're new listing has been posted!");
+    }
+  }); //end of ajax request
+}
