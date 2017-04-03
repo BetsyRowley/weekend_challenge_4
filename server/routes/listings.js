@@ -2,14 +2,20 @@ var express = require("express");
 var router = express.Router();
 var mongoose = require("mongoose");
 
-//add schema? one for rent & one for sale?
 var ListingsSchema = mongoose.Schema({
   cost: Number,
   sqft: Number,
   city: String
 });
 
-var Listings = mongoose.model("Listings", ListingsSchema);
+var RentSchema = mongoose.Schema({
+  rent: Number,
+  sqft: Number,
+  city: String
+});
+
+var Listings = mongoose.model("Listings", ListingsSchema, "listings");
+var RentListings = mongoose.model("RentListings", RentSchema, "listings");
 
 //GET all listings
 router.get("/", function(req, res) {
@@ -33,6 +39,18 @@ router.post("/", function(req, res) {
       res.sendStatus(500);
     } else {
       res.send(savedListing);
+    }
+  });
+  var rentListing = new RentListings();
+  rentListing.rent = req.body.rent;
+  rentListing.sqft = req.body.rentSqft;
+  rentListing.city = req.body.rentCity;
+  rentListing.save(function(err, savedRentListing) {
+    if(err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.send(savedRentListing);
     }
   });
 });

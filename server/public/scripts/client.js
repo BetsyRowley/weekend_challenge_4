@@ -3,21 +3,46 @@ $(document).ready(function() {
 
   init();
 
-  $("#submitForm").on("click", postListing);
-
 });
 
 //function init
 function init() {
+  eventListeners(true);
   getListings();
   // displayForm();
 }
 
 //function eventListeners
-
+function eventListeners(value) {
+  if(value) {
+    $("#submitForm").on("click", clickSubmit);
+  } else {
+    $("#submitForm").off("click", clickSubmit);
+  }
+}
 
 //Event Handlers
-
+function clickSubmit(event) {
+  event.preventDefault();
+  var listing = {};
+  if(".radios" === "sell") {
+    listing.cost = $("#price").val();
+    listing.sqft = $("#sqft").val();
+    listing.city = $("#city").val();
+    $("#price").val("");
+    $("#sqft").val("");
+    $("#city").val("");
+  } else {
+    listing.rent = $("#rentAmount").val();
+    listing.rentSqft = $("#rentalSqft").val();
+    listing.rentCity = $("#rentalCity").val();
+    $("#rentAmount").val("");
+    $("#rentalSqft").val("");
+    $("#rentalCity").val("");
+  }
+  console.log(listing);
+  postListing(listing);
+}
 
 //DOM Methods
 
@@ -45,16 +70,16 @@ function appendListings(response) {
   }
 }
 
-function displayForm() {
-
-  if(value === "rent") {
-    $(".rentalForm").toggle("show");
-    $(".sellForm").hide();
-  } else {
-    $(".sellForm").toggle("show");
-    $(".rentalForm").hide();
-  }
-}
+// function displayForm() {
+//
+//   if(value === "rent") {
+//     $(".rentalForm").toggle("show");
+//     $(".sellForm").hide();
+//   } else {
+//     $(".sellForm").toggle("show");
+//     $(".rentalForm").hide();
+//   }
+// }
 
 //REST Interface
 
@@ -70,16 +95,7 @@ function getListings(){
   }); //end of ajax request
 } // end of function
 
-function postListing(event) {
-  event.preventDefault();
-  var listing = {};
-  listing.cost = $("#price").val();
-  listing.sqft = $("#sqft").val();
-  listing.city = $("#city").val();
-  $("#price").val("");
-  $("#sqft").val("");
-  $("#city").val("");
-  console.log(listing);
+function postListing(listing) {
   $.ajax({
     type: "POST",
     url: "/listings",
