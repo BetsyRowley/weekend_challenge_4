@@ -70,7 +70,8 @@ function getListings(){
   }); //end of ajax request
 } // end of function
 
-function postListing() {
+function postListing(event) {
+  event.preventDefault();
   var listing = {};
   listing.cost = $("#price").val();
   listing.sqft = $("#sqft").val();
