@@ -29,6 +29,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
+  if(req.body.cost) {
   var listing = new Listings();
   listing.cost = req.body.cost;
   listing.sqft = req.body.sqft;
@@ -41,6 +42,7 @@ router.post("/", function(req, res) {
       res.send(savedListing);
     }
   });
+} else if(req.body.rent) {
   var rentListing = new RentListings();
   rentListing.rent = req.body.rent;
   rentListing.sqft = req.body.rentSqft;
@@ -53,6 +55,7 @@ router.post("/", function(req, res) {
       res.send(savedRentListing);
     }
   });
+}
 });
 
 module.exports = router;
