@@ -1,10 +1,8 @@
 # [Minnesota Listings](https://minnesota-listings.herokuapp.com/)
 
-This weekend challenged uses the MEAN stack and the OMDB API to create an application that can search for movies. A user can also store their favorites in the database, as well as delete a stored favorite.
+This weekend challenge put me in the role of an application developer for a real estate company that needed its collection of listings displayed.
 
-This challenge introduces AngularJS and the concept of using Controllers and Factories.
-
-****UPDATE: OMDB API is no longer free so this application currently does connect to OMDB API.
+We had to utilize client side logic to determine how to display different data sets (For Rent and For Sale) on the DOM. Create and Read of CRUD routes were explored.
 
 ![Heroku Site](MNListings.png)
 
@@ -35,7 +33,7 @@ Steps to get the development environment running.
 1. Clone the repository to your local machine.
 
 ```
-git clone https://github.com/BetsyRowley/weekend_challenge5.git
+git clone https://github.com/BetsyRowley/weekend_challenge_4.git
 ```
 
 2. Install all dependencies.
@@ -72,7 +70,7 @@ localhost:8000
 
 * MongoDB
 * Express.js
-* AngularJS
+* jQuery
 * Node.js
 * Grunt
 * HTML5
