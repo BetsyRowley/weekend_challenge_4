@@ -36,25 +36,25 @@ git clone https://github.com/BetsyRowley/weekend_challenge_4.git
 npm install
 ```
 
-2. Ensure MongoDB is running.
+3. Ensure MongoDB is running.
 
 ```
 mongod
 ```
 
-3. Start Grunt.
+4. Start Grunt.
 
 ```
 grunt
 ```
 
-4. Spin up the Server.
+5. Spin up the Server.
 
 ```
 npm start
 ```
 
-5. Open in the browser.
+6. Open in the browser.
 
 ```
 localhost:8000
